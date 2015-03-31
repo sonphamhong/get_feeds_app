@@ -6,6 +6,7 @@ GetFeedsApp::Application.routes.draw do
   end
   namespace :admin do
     get "home", :to => "home#index"
+    get "feed", :to => "feed#index"
   end
   root :to => 'website/home#index'
   # The priority is based upon order of creation:
