@@ -1,5 +1,7 @@
 GetFeedsApp::Application.routes.draw do
 
+  devise_for :admins
+
   devise_for :users
   namespace :website do
     get "home/index", :to => "home#index"
