@@ -1,7 +1,17 @@
 class Admin::HomeController < AdminController
   def index
-    # @graph = Koala::Facebook::API.new("CAACEdEose0cBAPZAwIx2ArPoFsvdyFeCNZBEEkuZBvlXe77DY0m9vusxDpnXp9k0aLSdOj4RUl5WgyZCqgDZAPi7UvCtWOwS1O6ZCDsAx1fzJ0jZBB3FCTGaJfKFMrWLFHJzDtk3aCmwqbdgZBnlOQgNQKFUopoG2wP96AwYSGCk3W2L8t0PUdkgHmKT2dOIdLSnRziJvB5js5ZCKd1uZCSnhlCd7vPudAnhYZD")
-    # feeds = @graph.get_connections("511088052277392", "?fields=feed.limit(100){message,link,picture}")
-    # binding.pry
+    @graph = Koala::Facebook::API.new("#{current_admin.access_token.token}")
+    feeds = @graph.get_connections("511088052277392", "?fields=feed.limit(100){message,link,picture}")
+    Feed.destroy_all
+    feeds["feed"]["data"].each do |feed|
+      tmp = feed["message"].split("\n\n")
+      title = tmp[0]
+      content = tmp[1]
+      link = feed["link"]
+      picture = feed["picture"]
+      created_time = feed["created_time"]
+      message = feed["message"]
+      Feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message)
+    end
   end
 end
