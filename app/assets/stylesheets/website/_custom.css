@@ -10,3 +10,6 @@ body{
   position: relative;
   cursor: auto;
 }
+#top_bar_custom{
+  margin-bottom: 1.5rem;
+}

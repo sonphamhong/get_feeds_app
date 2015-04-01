@@ -1,13 +1,26 @@
-.row.panel
-  .small-8.medium-8.large-8.columns
-    %h1 Feed Template
-  - if current_user
-    .small-4.medium-4.columns
-      %a{:id => "user_sign_in_button"}
-        = image_tag "rails.png"
-      %ul{:id => "profile_user", :style => "display:none;"}
-        %li
-          = link_to "Sign Out", destroy_user_session_path, :method => "delete"  
-  - else
-    .small-4.medium-4.columns
-      = link_to "Sign In", new_user_session_path, :class => "button small radius"
+%nav.top-bar#top_bar_custom{"data-topbar" => "", :role => "navigation"}
+  %ul.title-area
+    %li.name
+      %h1
+        %a{:href => "#"} My Site
+    %li.toggle-topbar.menu-icon
+      %a{:href => "#"}
+        %span Menu
+  %section.top-bar-section
+    %ul.right
+      %li.active
+        %a{:href => "#"} Right Button Active
+      %li.has-dropdown
+        - if current_user
+          %a{:href => "#"} 
+            = "Well Come #{current_user.email}"
+          %ul.dropdown#custom_user_dropdown
+            %li
+              %a{:href => "#"} First link in dropdown
+            %li
+              = link_to "Sign Out", destroy_user_session_path, :method => "delete"
+        - else
+          = link_to "Sign In", new_user_session_path
+    %ul.left
+      %li
+        %a{:href => "#"} Left Nav Button
