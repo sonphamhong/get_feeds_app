@@ -1,6 +1,13 @@
 .row.panel
   .small-8.medium-8.large-8.columns
     %h1 Feed Template
-  .small-4.medium-4.columns
-    %button{:id => "sign_in", :class => "button small radius"}
-      = "Sign In"
+  - if current_user
+    .small-4.medium-4.columns
+      %a{:id => "user_sign_in_button"}
+        = image_tag "rails.png"
+      %ul{:id => "profile_user", :style => "display:none;"}
+        %li
+          = link_to "Sign Out", destroy_user_session_path, :method => "delete"  
+  - else
+    .small-4.medium-4.columns
+      = link_to "Sign In", new_user_session_path, :class => "button small radius"
