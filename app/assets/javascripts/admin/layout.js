@@ -16,7 +16,6 @@ jQuery( function($)
     $(activeTab).fadeIn(); //Fade in the active ID content
     return false;
   });
-  $('.column').equalHeight();
 
   // choose text for the show/hide link - can contain HTML (e.g. an image)
   var showText='Show';
@@ -51,4 +50,6 @@ jQuery( function($)
   return false;
 
   });
+
+  
 });

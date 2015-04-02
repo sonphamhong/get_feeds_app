@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tablesorter.min
-//= require jquery.equalHeight
 //= require 'foundation/foundation'
 //= require foundation
 //= require admin/home
