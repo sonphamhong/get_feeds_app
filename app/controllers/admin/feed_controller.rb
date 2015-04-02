@@ -1,7 +1,6 @@
-class Admin::FeedController < ApplicationController
+class Admin::FeedController < AdminController
   def index
     @feeds = Feed.all
-    binding.pry
   end
 
   def get_feeds

@@ -197,7 +197,7 @@ margin: 0 5px;
 /* Sidebar */
 
 aside#sidebar {
-width: 23%;
+width: 98%;
 background: #E0E0E3 url('sidebar.png') repeat;
 float: left;
 min-height: 500px;
@@ -216,8 +216,8 @@ height: 2px;}
 /* Search */
 
 .quick_search {
+margin: 1.5rem;
 text-align: center;
-padding: 14px 0 10px 0;
 }
 
 .quick_search input[type=text] {
