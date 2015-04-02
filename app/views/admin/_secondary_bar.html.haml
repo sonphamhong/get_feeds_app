@@ -1,0 +1,61 @@
+%section#secondary_bar
+  .user
+    %p
+      John Doe (
+      %a{:href => "#"}> 3 Messages
+      )
+    / <a class="logout_user" href="#" title="Logout">Logout</a>
+  .breadcrumbs_container
+    %article.breadcrumbs
+      %a{:href => "index.html"} Website Admin
+      .breadcrumb_divider
+      %a.current Dashboard
+/ end of secondary bar
+%aside#sidebar.column
+  %form.quick_search
+    %input{:onfocus => "if(!this._haschanged){this.value=''};this._haschanged=true;", :type => "text", :value => "Quick Search"}
+  %hr/
+  %h3 Content
+  %ul.toggle
+    %li.icn_new_article
+      %a{:href => "#"} New Article
+    %li.icn_edit_article
+      %a{:href => "#"} Edit Articles
+    %li.icn_categories
+      %a{:href => "#"} Categories
+    %li.icn_tags
+      %a{:href => "#"} Tags
+  %h3 Users
+  %ul.toggle
+    %li.icn_add_user
+      %a{:href => "#"} Add New User
+    %li.icn_view_users
+      %a{:href => "#"} View Users
+    %li.icn_profile
+      %a{:href => "#"} Your Profile
+  %h3 Media
+  %ul.toggle
+    %li.icn_folder
+      %a{:href => "#"} File Manager
+    %li.icn_photo
+      %a{:href => "#"} Gallery
+    %li.icn_audio
+      %a{:href => "#"} Audio
+    %li.icn_video
+      %a{:href => "#"} Video
+  %h3 Admin
+  %ul.toggle
+    %li.icn_settings
+      %a{:href => "#"} Options
+    %li.icn_security
+      %a{:href => "#"} Security
+    %li.icn_jump_back
+      %a{:href => "#"} Logout
+  %footer
+    %hr/
+    %p
+      %strong Copyright &copy; 2011 Website Admin
+    %p
+      Theme by
+      %a{:href => "http://www.medialoot.com"} MediaLoot
+/ end of sidebar
