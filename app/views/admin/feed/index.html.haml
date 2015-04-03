@@ -1,4 +1,30 @@
 .small-9.medium-9.columns
   %section#content
-    %h1 Admin::Feed#index
-    %p Find me in app/views/admin/feed/index.html.haml
+    %h1
+      = "Artice List"
+    %table{:width => "100%"}
+      %thead
+        %th.text-center
+          = "Id"
+        %th.text-center
+          = "Image"
+        %th.text-center
+          = "Published"
+        %th.text-center
+          = "Edit"
+        %th.text-center
+          = "Delete"
+      - if @feeds.present?
+        - @feeds.each do |feed|
+          %tr
+            %td.text-center
+              = feed.id
+            %td.text-center
+              = image_tag feed.picture, :size => "100" if feed.picture.present?
+            %td.text-center
+              = feed.disabled
+            %td.text-center
+              = link_to "Edit", edit_admin_feed_path("#{feed.id}")
+            %td.text-center
+              = link_to "Delete", edit_admin_feed_path("#{feed.id}"), :method => "delete"
+

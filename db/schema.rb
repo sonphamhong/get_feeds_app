@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150402024503) do
+ActiveRecord::Schema.define(:version => 20150403070749) do
 
   create_table "access_tokens", :force => true do |t|
     t.string   "token"
@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(:version => 20150402024503) do
     t.string   "picture"
     t.datetime "created_time"
     t.integer  "page_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "message"
+    t.boolean  "disabled",     :default => true
   end
 
   create_table "pages", :force => true do |t|

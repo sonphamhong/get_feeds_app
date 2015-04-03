@@ -13,7 +13,7 @@ class Page < ActiveRecord::Base
       picture = feed["picture"]
       created_time = feed["created_time"]
       message = feed["message"]
-      self.feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message)
+      self.feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message, :disabled => "t")
     end
   end
 

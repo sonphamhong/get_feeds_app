@@ -10,6 +10,7 @@ GetFeedsApp::Application.routes.draw do
     get "home", :to => "home#index"
     get "feed", :to => "feed#index"
     get "feed/get_feeds", :to => "feed#get_feeds"
+    resources :feed
   end
   root :to => 'website/home#index'
   # The priority is based upon order of creation:

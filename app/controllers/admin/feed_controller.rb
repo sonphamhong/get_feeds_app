@@ -3,6 +3,19 @@ class Admin::FeedController < AdminController
     @feeds = Feed.all
   end
 
+  def edit
+    binding.pry
+    @feed = Feed.find_by_id(params[:id])
+  end
+
+  def update
+    
+  end
+
+  def destroy
+    
+  end
+
   def get_feeds
     Feed.destroy_all
     pages = Page.all
