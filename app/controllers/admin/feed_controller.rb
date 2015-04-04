@@ -13,7 +13,15 @@ class Admin::FeedController < AdminController
   end
 
   def destroy
-    
+    feed = Feed.find_by_id(params[:id])
+    status = "error"
+    if feed.present?
+      feed.destroy
+      status = "ok"  
+    end
+    respond_to do |format|
+      format.json {render json: {status: status}}
+    end
   end
 
   def get_feeds

@@ -20,11 +20,13 @@
             %td.text-center
               = feed.id
             %td.text-center
-              = image_tag feed.picture, :size => "100" if feed.picture.present?
+              = image_tag feed.picture, size: "100x100" if feed.picture.present?
             %td.text-center
               = feed.disabled
             %td.text-center
-              = link_to "Edit", edit_admin_feed_path("#{feed.id}")
+              = link_to "Edit", edit_admin_feed_path(feed)
             %td.text-center
-              = link_to "Delete", edit_admin_feed_path("#{feed.id}"), :method => "delete"
+              / = link_to "Delete", admin_feed_path(feed), method: :delete
+              %button{:link => admin_feed_path(feed), :class => "small radius del_artice_button"}
+                = "Delete"
 
