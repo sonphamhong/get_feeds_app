@@ -8,9 +8,8 @@ class Admin::FeedController < AdminController
   end
 
   def update
-    binding.pry
     feed = Feed.find_by_id(params[:id])
-    feed.update_attributes(:title => params[:feed][:title], :content => params[:feed][:content]) if feed.present?
+    feed.update_attributes(params[:feed]) if feed.present?
     redirect_to admin_feed_index_path
   end
 
