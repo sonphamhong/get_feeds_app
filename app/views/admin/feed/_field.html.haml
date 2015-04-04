@@ -1,0 +1,14 @@
+= form_for([:admin, @feed]) do |f|
+  .row
+    .small-3.medium-3.columns
+      = f.label :title
+    .small-9.medium-9.columns
+      = f.text_field :title
+  .row
+    .small-3.medium-3.columns
+      = f.label :content
+    .small-9.medium-9.columns
+      = f.text_area :content
+  %hr
+  .row
+    = f.submit "Update"

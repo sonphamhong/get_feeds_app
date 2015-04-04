@@ -4,12 +4,14 @@ class Admin::FeedController < AdminController
   end
 
   def edit
-    binding.pry
     @feed = Feed.find_by_id(params[:id])
   end
 
   def update
-    
+    binding.pry
+    feed = Feed.find_by_id(params[:id])
+    feed.update_attributes(:title => params[:feed][:title], :content => params[:feed][:content]) if feed.present?
+    redirect_to admin_feed_index_path
   end
 
   def destroy
@@ -31,4 +33,8 @@ class Admin::FeedController < AdminController
       p.get_feeds current_admin
     end
   end
+  private
+    def method_name
+      
+    end
 end

@@ -1,2 +1,5 @@
 .small-9.medium-9.columns
   %section#content
+    %textarea{:rows => "20"}
+      = @feed.message
+    = render 'field'
