@@ -25,20 +25,22 @@
           %a{:href => "#"} Section 6
 .large-6.columns
   - if @feeds.present?
-    - binding.pry
     - @feeds.each do |feed|
-      %a{:href => "#"}
-        .row
-          .large-2.columns.small-3
-            %img{:src => "#{feed.picture}"}
-          .large-10.columns
-            .row
-              %p
-                %strong
-                  = feed.title
-            .row
-              %p
-                = feed.content
+      .row
+        .large-2.columns.small-2
+          %img{:src => "#{feed.picture}"}
+        .large-10.columns.small-10
+          .row
+            %p
+              %strong
+                = feed.try(:title)
+          .row
+            %p
+              = feed.try(:content)[0..100] + "..."
+          .row.right
+            %a{:href => "#"}
+              = "Read more >>"
+        %hr
 %aside.large-3.columns.hide-for-small-only
   %p
     %img{:src => "http://placehold.it/300x440&text=[ad]"}
