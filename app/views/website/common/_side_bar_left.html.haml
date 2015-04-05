@@ -23,21 +23,3 @@
       %section.section
         %h5.title
           %a{:href => "#"} Section 6
-.large-6.columns
-  - if @feeds.present?
-    - @feeds.each do |feed|
-      .row
-        .large-2.columns.small-2
-          %img{:src => "#{feed.picture}"}
-        .large-10.columns.small-10
-          .row
-            %p
-              %strong
-                = feed.try(:title)
-          .row
-            %p
-              = feed.try(:content)[0..100] + "..."
-          .row.right
-            %a{:href => website_path("#{feed.id}")}
-              = "Read more >>"
-        %hr

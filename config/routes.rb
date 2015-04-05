@@ -1,10 +1,10 @@
 GetFeedsApp::Application.routes.draw do
-
   devise_for :admins
 
   devise_for :users
   namespace :website do
     get "home/index", :to => "home#index"
+    get "artices/show/:id", :to => "artices#show"
   end
   namespace :admin do
     resources :feed, :only => [:index, :edit, :update, :destroy] 

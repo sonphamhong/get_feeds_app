@@ -1,0 +1,13 @@
+.small-12.medium-9.columns
+  - if @artice.present?
+    .row
+      %h3
+        = @artice.title
+    .row
+      %p
+        = @artice.content
+    .row
+      #author
+        = "Bai viet cua"
+        %a{:href => "#{@artice.link}", :target => "_blank"}
+          = @artice.page.try(:page_name)

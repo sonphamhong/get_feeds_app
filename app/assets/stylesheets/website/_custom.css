@@ -13,3 +13,6 @@ body{
 #top_bar_custom{
   margin-bottom: 1.5rem;
 }
+#author{
+  float :right;
+}

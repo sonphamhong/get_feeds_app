@@ -1,8 +1,8 @@
 !!!
 %html{:lang => "en"}
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? yield(:title) : "foundation-rails"
     = stylesheet_link_tag    "website_app"
     = javascript_include_tag "vendor/modernizr"
@@ -10,5 +10,6 @@
   %body
     = render "website/common/header"
     = yield
+    = render "website/common/side_bar_right"
     = render "website/common/footer"
     = javascript_include_tag "website_app"
