@@ -1,7 +1,7 @@
 GetFeedsApp::Application.routes.draw do
   devise_for :admins
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :website do
     get "home/index", :to => "home#index"
     get "artices/show/:id", :to => "artices#show"

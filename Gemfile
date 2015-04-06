@@ -28,6 +28,8 @@ gem 'foundation-rails'
 gem 'koala'
 gem 'jquery-ui-rails'
 gem 'will_paginate', '~> 3.0.6'
+gem 'omniauth'
+gem 'omniauth-facebook'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
