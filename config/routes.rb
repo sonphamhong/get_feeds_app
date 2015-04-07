@@ -11,6 +11,8 @@ GetFeedsApp::Application.routes.draw do
     resources :feed, :only => [:index, :edit, :update, :destroy] 
     get "/home", :to => "home#index"
     get "feed/get_feeds", :to => "feed#get_feeds"
+    get "/callback", :to => "feed#callback"
+    get "/get_access_token", :to => "feed#get_access_token_facebook"
   end
   root :to => 'website/home#index'
   # The priority is based upon order of creation:
