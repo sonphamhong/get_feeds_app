@@ -13,7 +13,7 @@
       %li.has-dropdown
         - if current_user
           %a{:href => "#"} 
-            = "Well Come #{current_user.email}"
+            = "Well Come #{current_user.try(:name)}"
           %ul.dropdown#custom_user_dropdown
             %li
               %a{:href => "#"} First link in dropdown
