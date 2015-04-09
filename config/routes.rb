@@ -17,6 +17,7 @@ GetFeedsApp::Application.routes.draw do
     get "/get_access_token", :to => "feed#get_access_token_facebook"
   end
   root :to => 'website/home#index'
+  post "save_post", :to => "users/profile#save_article_to_user", :as => "save_post"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

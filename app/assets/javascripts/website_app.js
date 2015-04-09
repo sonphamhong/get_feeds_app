@@ -15,6 +15,7 @@
 //= require 'foundation/foundation'
 //= require foundation
 //= require website/home
+//= require website/artices
 
 $(function(){ 
   $(document).foundation(); 

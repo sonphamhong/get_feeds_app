@@ -1,8 +1,13 @@
+%input#save_post_to_user_path{:type => "hidden", :value => save_post_path}
 .small-12.medium-9.columns
   - if @artice.present?
     .row
       %h3
         = @artice.title
+    .row
+      %right
+        %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "small radius"}
+          = "Save Post"
     .row
       %p
         = @artice.content
