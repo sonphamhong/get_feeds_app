@@ -5,9 +5,8 @@
       %h3
         = @artice.title
     .row
-      %right
-        %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "small radius"}
-          = "Save Post"
+      %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "button small radius right"}
+        = "Save Post"
     .row
       %p
         = @artice.content
