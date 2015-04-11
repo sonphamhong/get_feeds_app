@@ -1,9 +1,9 @@
 class Users::ProfileController < WebsiteController
 
+  before_filter :authenticate_user!
   def save_article_to_user
     article = Feed.find_by_id(params[:id])
-    binding.pry
-    if current_user && article.present?
+    if current_user && article.present? && (!current_user.feeds.exists? article)
       current_user.article_users.create(:user_id => current_user.id, :article_id => article.id)
       message = "OK"
     else
@@ -26,5 +26,20 @@ class Users::ProfileController < WebsiteController
   def unfollow
     @user = User.find_by_id(params[:user])
     current_user.unfollow @user if @user.present?
+  def show
+    @articles = current_user.feeds
+  end
+
+  def delete_article_user
+    article = current_user.article_users.where(:article_id => params[:id])
+    if article.present?
+      article.destroy_all
+      message = "ok"
+    else
+      message = "error"
+    end
+    respond_to do |format|
+      format.json {render json: {result: message}}
+    end
   end
 end

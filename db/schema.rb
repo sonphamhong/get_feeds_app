@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20150518073505) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.string   "message"
-    t.boolean  "disabled",     :default => true
+    t.boolean  "published",    :default => true
   end
 
   create_table "pages", :force => true do |t|

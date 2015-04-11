@@ -1,0 +1,12 @@
+.row
+  .small-3.medium-3.columns
+    %label
+      = "Page Id"
+  .small-9.medium-9.columns
+    %input{:type => "text", :name => "data[page_id]", :value => @page.try(:page_id)}
+.row
+  .small-3.medium-3.columns
+    %label
+      = "Page Name"
+  .small-9.medium-9.columns
+    %input{:type => "text", :name => "data[page_name]", :value => @page.try(:page_name)}

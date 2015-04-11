@@ -1,0 +1,7 @@
+.small-9.medium-9.columns
+  = form_for(@page, :url => admin_page_index_path) do |f|
+    = render "field"
+    %hr
+    .row
+      %center
+        = f.submit "Submit", :class => " button small radius"

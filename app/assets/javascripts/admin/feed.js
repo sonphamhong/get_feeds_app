@@ -18,4 +18,19 @@ jQuery( function($){
       })
     }
   });
+
+  $("[id^='published_switch']").on('click', function(e) {
+    parent = $(this).parent();
+    url = parent.children('input[type=hidden]').val();
+    status_check_box = $(this).is(':checked');
+    console.log(status_check_box);
+    $.ajax({
+      url: url,
+      type: 'get',
+      data: {status: status_check_box},
+      success: function(result){
+        console.log(result);
+      }
+    })
+  });
 });

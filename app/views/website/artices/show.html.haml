@@ -4,9 +4,14 @@
     .row
       %h3
         = @artice.title
-    .row
-      %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "button small radius right"}
-        = "Save Post"
+    - if current_user
+      .row
+        - if current_user.feeds.exists? @artice
+          %button{:class => "button small radius right"}
+            = "Saved"
+        - else
+          %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "button small radius right"}
+            = "Save Post"
     .row
       %p
         = @artice.content
@@ -15,3 +20,4 @@
         = "Bai viet cua"
         %a{:href => "#{@artice.link}", :target => "_blank"}
           = @artice.page.try(:page_name)
+= render "website/common/dialog"

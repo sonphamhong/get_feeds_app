@@ -1,4 +1,5 @@
 GetFeedsApp::Application.routes.draw do
+
   devise_for :admins
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -11,8 +12,10 @@ GetFeedsApp::Application.routes.draw do
   end
   namespace :admin do
     resources :feed, :only => [:index, :edit, :update, :destroy] 
+    resources :page, :only => [:index, :edit, :update, :destroy, :create, :new]
     get "/home", :to => "home#index"
-    get "feed/get_feeds", :to => "feed#get_feeds"
+    get "feed/published_switch", :to => "feed#update_published_switch", :as => "update_published_switch"
+    get "feed/get_feeds", :to => "feed#get_feeds", :as => "get_feeds"
     get "/callback", :to => "feed#callback"
     get "/get_access_token", :to => "feed#get_access_token_facebook"
   end
@@ -21,6 +24,8 @@ GetFeedsApp::Application.routes.draw do
   get "profile", :to => "users/profile#index", :as => "profile"
   match 'follow' => 'users/profile#follow'
   match 'unfollow' => 'users/profile#unfollow'
+  get "profile", :to => "users/profile#show", :as => "profile"
+  get "delele_article_user", :to => "users/profile#delete_article_user", :as => "delete_article_user"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -13,7 +13,7 @@ class Page < ActiveRecord::Base
       picture = feed["picture"]
       created_time = feed["created_time"]
       message = feed["message"]
-      self.feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message, :disabled => "t")
+      self.feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message, :published => "f") if created_time.to_datetime >= Time.now.beginning_of_day
     end
   end
 
@@ -24,6 +24,13 @@ class Page < ActiveRecord::Base
     rescue Exception => e
       Rails.logger.info("=======================================> Error while initialise graph object: #{e.message} ")
     end
+  end
+
+  def update_page_name current_admin
+    @graph = get_fb_graph_api_object current_admin
+    profile = @graph.get_connections("#{self.page_id}", "")
+    self.update_attributes(:page_name => profile["name"]) if profile.present?
+    binding.pry
   end
 
 end

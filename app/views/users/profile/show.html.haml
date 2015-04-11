@@ -1,0 +1,11 @@
+%input#del_article_user_path{:type => "hidden", :value => delete_article_user_path}
+.small-12.medium-9.columns
+  - if @articles.present?
+    - @articles.each do |article|
+      .row
+        .small-10.medium-10.columns
+          = article.title
+        .small-2.medium-2.columns
+          %button{:id => "delete_article_user_button_#{article.id}", :id_artice => article.id, :class => "button small radius"}
+            = "Delete"
+= render "website/common/dialog"

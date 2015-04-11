@@ -22,7 +22,10 @@
             %td.text-center
               = image_tag feed.picture, size: "100x100" if feed.picture.present?
             %td.text-center
-              = feed.disabled
+              .switch.radius.round.large
+                %input{:type => "checkbox", :name => "switch_article_#{feed.id}", :id => "published_switch_#{feed.id}", :checked => feed.published}
+                  %label{:for => "published_switch_#{feed.id}"}
+                %input.published_switch_url{type: :hidden, value: admin_update_published_switch_path({id: feed.id}) }
             %td.text-center
               = link_to "Edit", edit_admin_feed_path(feed)
             %td.text-center

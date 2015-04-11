@@ -6,13 +6,13 @@
     %h3 Content
     %ul.toggle
       %li.icn_new_article
-        %a{:href => "#"} New Article
+        = link_to "New Page", new_admin_page_path
       %li.icn_edit_article
         %a{:href => "#"} Edit Articles
       %li.icn_categories
         %a{:href => admin_feed_index_path} Article List
       %li.icn_tags
-        %a{:href => "#"} Tags
+        = link_to "Page List", admin_page_index_path
     %h3 Users
     %ul.toggle
       %li.icn_add_user

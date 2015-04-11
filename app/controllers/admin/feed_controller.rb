@@ -1,6 +1,6 @@
 class Admin::FeedController < AdminController
   def index
-    @feeds = Feed.all
+    @feeds = Feed.order("created_time DESC")
   end
 
   def edit
@@ -11,6 +11,19 @@ class Admin::FeedController < AdminController
     feed = Feed.find_by_id(params[:id])
     feed.update_attributes(params[:feed]) if feed.present?
     redirect_to admin_feed_index_path
+  end
+
+  def update_published_switch
+    feed = Feed.find_by_id(params[:id])
+    if feed.present?
+      feed.update_attributes(:published => params[:status])
+      status = "ok"
+    else
+      status = "error"
+    end
+    respond_to do |format|
+      format.json {render json: {status: status}}
+    end
   end
 
   def destroy
@@ -26,11 +39,12 @@ class Admin::FeedController < AdminController
   end
 
   def get_feeds
-    Feed.destroy_all
-    pages = Page.all
-    pages.each do |p|
-      p.get_feeds current_admin
-    end
+    page = Page.find_by_id(params[:id])
+    page.get_feeds current_admin
+    status = "ok"
+    respond_to do |format|
+      format.json {render json: {status: status}}
+    end 
   end
 
   def get_access_token_facebook

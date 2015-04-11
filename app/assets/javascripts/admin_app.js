@@ -18,6 +18,7 @@
 //= require admin/home
 //= require admin/feed
 //= require admin/layout
+//= require admin/page
 $(function(){ 
   $(document).foundation(); 
 });
