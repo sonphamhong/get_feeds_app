@@ -13,7 +13,8 @@ class Page < ActiveRecord::Base
       picture = feed["picture"]
       created_time = feed["created_time"]
       message = feed["message"]
-      self.feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message, :published => "f") if created_time.to_datetime >= Time.now.beginning_of_day
+      f = self.feed.create(:title => title, :content => content, :link => link, :picture => picture, :created_time => created_time, :message => message, :published => "f") if created_time.to_datetime >= Time.now.beginning_of_day
+      f.upload_image_feed picture if f.present?
     end
   end
 
@@ -30,7 +31,6 @@ class Page < ActiveRecord::Base
     @graph = get_fb_graph_api_object current_admin
     profile = @graph.get_connections("#{self.page_id}", "")
     self.update_attributes(:page_name => profile["name"]) if profile.present?
-    binding.pry
   end
 
 end

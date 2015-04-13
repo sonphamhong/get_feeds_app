@@ -1,5 +1,5 @@
 %input#save_post_to_user_path{:type => "hidden", :value => save_post_path}
-.small-12.medium-9.columns
+.small-12.medium-6.columns
   - if @artice.present?
     .row
       %h3
@@ -20,4 +20,3 @@
         = "Bai viet cua"
         %a{:href => "#{@artice.link}", :target => "_blank"}
           = @artice.page.try(:page_name)
-= render "website/common/dialog"

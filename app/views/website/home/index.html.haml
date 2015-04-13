@@ -3,7 +3,7 @@
     - @feeds.each do |feed|
       .row
         .large-2.columns.small-2
-          %img{:src => "#{feed.picture}"}
+          = image_tag feed.picture
         .large-10.columns.small-10
           .row
             %p
@@ -11,7 +11,7 @@
                 = feed.try(:title)
           .row
             %p
-              = feed.try(:content)[0..100] + "..."
+              = feed.content[0..100] + "..." if feed.content.present?
           .row.right
             %a{:href => website_path("#{feed.id}")}
               = "Read more >>"
