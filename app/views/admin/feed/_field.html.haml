@@ -1,14 +1,14 @@
 = form_for([:admin, @feed]) do |f|
   .row
-    .small-3.medium-3.columns
+    .small-12.medium-2.columns
       = f.label :title
-    .small-9.medium-9.columns
+    .small-12.medium-10.columns
       = f.text_field :title
   .row
-    .small-3.medium-3.columns
+    .small-12.medium-2.columns
       = f.label :content
-    .small-9.medium-9.columns
-      = f.text_area :content
+    .small-12.medium-10.columns
+      = f.text_area :content, :class => 'ckeditor'
   %hr
   .row
     %center

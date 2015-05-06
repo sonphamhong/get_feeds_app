@@ -35,6 +35,11 @@ GEM
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
+    ckeditor_rails (4.4.6)
+      railties (>= 3.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (3.2.2)
@@ -105,7 +110,11 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+<<<<<<< HEAD
     paperclip (4.2.1)
+=======
+    paperclip (4.2.0)
+>>>>>>> add_06_05_2015
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -172,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ckeditor_rails
   coffee-rails (~> 3.2.1)
   devise
   foundation-rails

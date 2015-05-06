@@ -19,6 +19,7 @@
 //= require admin/feed
 //= require admin/layout
 //= require admin/page
+//= require ckeditor-jquery
 $(function(){ 
   $(document).foundation(); 
 });
