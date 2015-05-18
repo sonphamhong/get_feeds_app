@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150409072230) do
+ActiveRecord::Schema.define(:version => 20150518073505) do
 
   create_table "access_tokens", :force => true do |t|
     t.string   "token"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20150409072230) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
+  create_table "artice_user", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "artice_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "article_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "article_id"
@@ -63,6 +70,13 @@ ActiveRecord::Schema.define(:version => 20150409072230) do
     t.string   "page_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,4 +1,4 @@
-class Users::ProfileController < ApplicationController
+class Users::ProfileController < WebsiteController
 
   def save_article_to_user
     article = Feed.find_by_id(params[:id])
@@ -12,5 +12,19 @@ class Users::ProfileController < ApplicationController
     respond_to do |format|
       format.json {render json: {result:message}}
     end
+  end
+
+  def index
+    @users = User.all
+  end
+  
+  def follow
+    @user = User.find_by_id(params[:user])
+    current_user.follow @user if @user.present?
+  end
+
+  def unfollow
+    @user = User.find_by_id(params[:user])
+    current_user.unfollow @user if @user.present?
   end
 end

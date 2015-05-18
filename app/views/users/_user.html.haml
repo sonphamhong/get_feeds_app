@@ -1,0 +1,8 @@
+.row
+  %div{:id => "user-#{user.id}"}
+    .right#follow_form
+      - if current_user.following?(user)
+        = render "shared/unfollow_form", :user => user
+      - else
+        = render "shared/follow_form", :user => user
+    = link_to user.name, profile_path

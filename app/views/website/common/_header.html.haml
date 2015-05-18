@@ -16,7 +16,7 @@
             = "Well Come #{current_user.try(:name)}"
           %ul.dropdown#custom_user_dropdown
             %li
-              %a{:href => "#"} First link in dropdown
+              = link_to "Profile", profile_path
             %li
               = link_to "Sign Out", destroy_user_session_path
         - else

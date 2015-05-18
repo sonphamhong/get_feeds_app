@@ -18,6 +18,9 @@ GetFeedsApp::Application.routes.draw do
   end
   root :to => 'website/home#index'
   post "save_post", :to => "users/profile#save_article_to_user", :as => "save_post"
+  get "profile", :to => "users/profile#index", :as => "profile"
+  match 'follow' => 'users/profile#follow'
+  match 'unfollow' => 'users/profile#unfollow'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
