@@ -26,6 +26,8 @@ class Users::ProfileController < WebsiteController
   def unfollow
     @user = User.find_by_id(params[:user])
     current_user.unfollow @user if @user.present?
+  end
+  
   def show
     @articles = current_user.feeds
   end

@@ -1,0 +1,2 @@
+$("#article-<%= @feed.id%> #like_form").html("<%= escape_javascript(render 'shared/unlike', :article => @feed)%>")
+$("#article-<%= @feed.id%> #count_like").html("<%= @feed.likes.count%> Like")

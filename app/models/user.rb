@@ -37,4 +37,16 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def like?(article)
+    likes.pluck(:feed_id).include? article.id
+  end
+
+  def like(article)
+    likes.create(:user_id => self.id, :feed_id => article.id)
+  end
+
+  def unlike(article)
+    likes.where(:user_id => self.id, :feed_id => article.id).first.destroy
+  end
 end

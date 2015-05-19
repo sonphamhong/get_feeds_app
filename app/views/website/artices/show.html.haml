@@ -6,12 +6,22 @@
         = @artice.title
     - if current_user
       .row
-        - if current_user.feeds.exists? @artice
-          %button{:class => "button small radius right"}
-            = "Saved"
-        - else
-          %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "button small radius right"}
-            = "Save Post"
+        %div{:id => "article-#{@artice.id}"}
+          .medium-4.columns#count_like
+            = @artice.likes.count 
+            = "Like"
+          .medium-4.columns#like_form
+            - if current_user.like?(@artice)
+              = render "shared/unlike", :article => @artice 
+            - else
+              = render "shared/like", :article => @artice
+          .medium-4.columns
+            - if current_user.feeds.exists? @artice
+              %button{:class => "button small radius right"}
+                = "Saved"
+            - else
+              %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "button small radius right"}
+                = "Save Post"
     .row
       %p
         = @artice.content

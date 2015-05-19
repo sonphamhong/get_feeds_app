@@ -24,8 +24,8 @@ GetFeedsApp::Application.routes.draw do
   get "profile", :to => "users/profile#index", :as => "profile"
   match 'follow' => 'users/profile#follow'
   match 'unfollow' => 'users/profile#unfollow'
-  get "like" => "user#like", :as => "like"
-  get "unlike" => "user#unlike", :as => "unlike"
+  post "like" => "user#like", :as => "like"
+  post "unlike" => "user#unlike", :as => "unlike"
   get "profile", :to => "users/profile#show", :as => "profile"
   get "delele_article_user", :to => "users/profile#delete_article_user", :as => "delete_article_user"
   # The priority is based upon order of creation:
