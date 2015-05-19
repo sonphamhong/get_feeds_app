@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150518073505) do
+ActiveRecord::Schema.define(:version => 20150519015211) do
 
   create_table "access_tokens", :force => true do |t|
     t.string   "token"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(:version => 20150518073505) do
     t.datetime "updated_at",                     :null => false
     t.string   "message"
     t.boolean  "disabled",     :default => true
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "feed_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pages", :force => true do |t|

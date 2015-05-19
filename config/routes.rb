@@ -1,4 +1,6 @@
 GetFeedsApp::Application.routes.draw do
+  get "user/like"
+
   devise_for :admins
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -21,6 +23,8 @@ GetFeedsApp::Application.routes.draw do
   get "profile", :to => "users/profile#index", :as => "profile"
   match 'follow' => 'users/profile#follow'
   match 'unfollow' => 'users/profile#unfollow'
+  get "like" => "user#like", :as => "like"
+  get "unlike" => "user#unlike", :as => "unlike"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

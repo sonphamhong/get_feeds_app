@@ -3,4 +3,5 @@ class Feed < ActiveRecord::Base
   belongs_to :page
   has_many :article_users
   has_many :users, through: :article_users
+  has_many :likes
 end
