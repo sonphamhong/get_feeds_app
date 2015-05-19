@@ -5,6 +5,7 @@ class Feed < ActiveRecord::Base
   has_many :article_users, :foreign_key => "article_id", dependent: :destroy
   has_many :users, through: :article_users
   has_many :likes
+  has_many :comments
   has_attached_file :image
   do_not_validate_attachment_file_type :image
   

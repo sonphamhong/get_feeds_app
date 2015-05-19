@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :passive_relationships, :class_name => "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :follower, through: :passive_relationships, :source => "follower"
   has_many :likes
+  has_many :comments
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
@@ -48,5 +49,9 @@ class User < ActiveRecord::Base
 
   def unlike(article)
     likes.where(:user_id => self.id, :feed_id => article.id).first.destroy
+  end
+
+  def comment post, content
+    comments.create(:feed_id => post.id, :content => content)
   end
 end

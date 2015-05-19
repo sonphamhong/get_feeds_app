@@ -1,0 +1,8 @@
+.row
+  = form_for @comment do |f|
+    = f.hidden_field :post_id, value: @artice.id
+    .field
+      = f.text_area :content, :rows => 8
+    .actions
+      = f.submit class: 'tiny button radius right'
+  %hr

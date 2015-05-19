@@ -1,5 +1,7 @@
 GetFeedsApp::Application.routes.draw do
 
+  get "comment/create"
+
   devise_for :admins
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -8,7 +10,7 @@ GetFeedsApp::Application.routes.draw do
   end
   namespace :website do
     get "home/index", :to => "home#index"
-    get "artices/show/:id", :to => "artices#show"
+    get "artices/show/:id", :to => "artices#show", :as => "article"
   end
   namespace :admin do
     resources :feed, :only => [:index, :edit, :update, :destroy] 
@@ -19,6 +21,7 @@ GetFeedsApp::Application.routes.draw do
     get "/callback", :to => "feed#callback"
     get "/get_access_token", :to => "feed#get_access_token_facebook"
   end
+  resources :comments
   root :to => 'website/home#index'
   post "save_post", :to => "users/profile#save_article_to_user", :as => "save_post"
   get "profile", :to => "users/profile#index", :as => "profile"
