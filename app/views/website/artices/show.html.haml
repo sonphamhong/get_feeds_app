@@ -18,12 +18,8 @@
           .medium-4.columns#button_save_post
             - if current_user.feeds.exists? @artice
               = render "shared/saved_post_form"
-              / %button{:class => "button small radius right"}
-              /   = "Saved"
             - else
               = render "shared/save_post_form", :article => @artice 
-              / %button{:id => "save_post_to_user_button", :id_artice => @artice.id, :class => "button small radius right"}
-              /   = "Save Post"
     .row
       %p
         = @artice.content
