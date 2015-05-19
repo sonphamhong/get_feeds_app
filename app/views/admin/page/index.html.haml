@@ -1,0 +1,36 @@
+%input#get_feeds_path{:type => "hidden", :value => admin_get_feeds_path}
+.small-9.medium-9.columns
+  %section#content
+    %h1
+      = "Page List"
+    %table{:width => "100%"}
+      %thead
+        %th.text-center
+          = "Id"
+        %th.text-center
+          = "Page name"
+        %th.text-center
+          = "Page Id"
+        %th.text-center
+          = "Task"
+        %th.text-center
+          = "Edit"
+        %th.text-center
+          = "Delete"
+      - if @pages.present?
+        - @pages.each do |page|
+          %tr
+            %td.text-center
+              = page.id
+            %td.text-center
+              = page.page_name
+            %td.text-center
+              = page.page_id
+            %td.text-center
+              %button{:class => "button small radius load_feeds_button", :id_page => page.id}
+                = "Load feeds"
+            %td.text-center
+              = link_to "Edit", "#"
+            %td.text-center
+              %button{:class => "small radius del_artice_button button"}
+                = "Delete"

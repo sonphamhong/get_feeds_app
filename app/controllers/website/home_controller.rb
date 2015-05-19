@@ -1,5 +1,5 @@
 class Website::HomeController < WebsiteController
   def index
-    @feeds = Feed.where(:disabled => "f")
+    @feeds = Feed.where(:published => "t")
   end
 end

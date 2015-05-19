@@ -59,10 +59,14 @@ ActiveRecord::Schema.define(:version => 20150519015211) do
     t.string   "picture"
     t.datetime "created_time"
     t.integer  "page_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "message"
-    t.boolean  "disabled",     :default => true
+    t.boolean  "published",          :default => true
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "likes", :force => true do |t|
