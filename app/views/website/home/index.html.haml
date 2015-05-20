@@ -13,6 +13,6 @@
             %p
               = feed.content[0..100] + "..." if feed.content.present?
           .row.right
-            %a{:href => website_path("#{feed.id}")}
+            %a{:href => website_article_path("#{feed.id}")}
               = "Read more >>"
         %hr
